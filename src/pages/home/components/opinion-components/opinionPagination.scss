@@ -1,0 +1,49 @@
+@import 'src/index.scss';
+
+.pagination {
+    @include elem-size ( 100%, 10% );
+    @include elem-flex( center, center );
+    gap: 0.5rem;
+
+    &>button, &>div, &>input {
+        @include elem-size ( 40px, 40px );
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
+        border: 0;
+        border-radius: 5px;
+        text-align: center;
+        @include elem-flex( center, center, center );
+    }
+    
+    &>button {
+        background-color: transparent;
+        @include elem-flex( center, center );
+        cursor: pointer;
+
+        &:hover {
+            color: #303030;
+            background-color: #ffffff;
+        }
+
+        &:disabled {
+            cursor: default;
+            background-color: transparent;
+            color: #fff;
+        }
+
+        &>i::before {
+            display: flex;
+        }
+    }
+
+    &>.maxPage_indicator {
+        @include elem-flex( center, center );
+    }
+
+    &>input {
+        color: #454545;
+        font-size: 1rem;
+        border-bottom: #303030;
+    }
+}

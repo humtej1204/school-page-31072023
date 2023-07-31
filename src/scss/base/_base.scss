@@ -1,0 +1,55 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.inputForm {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    label {
+        font-weight: 600;
+        color: #444444;
+    }
+
+    input {
+        padding: 0.75rem;
+        border: 1px solid #999;
+        border-radius: 5px;
+    }
+
+    select {
+        padding: 0.75rem;
+        border: 1px solid #919191;
+        border-radius: 5px;
+        color: #666666;
+        appearance: none;
+        background-color: #ffffff;
+        background-image: url('../../assets/imgs/matricula/caret-down.svg');
+        background-repeat:no-repeat;
+        background-size: 1.25rem;
+        background-position: calc(100% - 0.75rem) 50%;
+    }
+
+}
+
+.full-window {
+    width: 100vw;
+    height: calc(100vh - var(--header-height));
+}
+
+.container_responsive {
+    margin: auto;
+    width: 95%;
+    min-width: 300px;
+    max-width: 800px;
+
+    @media (min-width: 1024px) {
+        width: 80%;
+        min-width: 1000px;
+        max-width: 1400px;
+    }
+}
