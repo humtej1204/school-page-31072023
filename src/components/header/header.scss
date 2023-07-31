@@ -1,0 +1,226 @@
+@import 'src/index.scss';
+
+#mainLayout_header {
+    @include elem-flex( space-between );
+    @include elem-size( 100%, var(--header-height) );
+    @include responsive(background-color, (
+        ss: white, md: var(--blue)
+    ));
+    position: sticky;
+    z-index: 100;
+    top: 0;
+}
+
+.onIt {
+    border-bottom: #fff 2px solid;
+}
+
+/* Logo Section */
+.logo {
+    @include elem-flex( center, center );
+    background-color: #fff;
+    border-radius: 0 0 100px 0;
+
+    img {
+        @include responsive(margin-left, (
+            ss: 1rem, md: 0
+        ));
+    }
+
+    .logo-text {
+        display: none;
+        margin-left: 15px;
+        margin-right: 30px;
+        font-family: Amaranth;
+        font-size: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+        width: 300px;
+
+        .logo-text {
+            display: inline;
+        }
+    }
+}
+
+/* Nav Section */
+nav {
+    box-sizing: border-box;
+    padding: 0 2rem;
+    flex: 1;
+    @include elem-flex( flex-end, center );
+    gap: 3rem;
+    color: #fff;
+    font-family: Anek Devanagari;
+
+    .main-links {
+        width: 500px;
+        color: #fff;
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        @include responsive(display, (lg: flex));
+
+        li {
+            @include elem-flex( center, center );
+
+            &:hover .sub-nav {
+                visibility: visible;
+                z-index: 10;
+            }
+        }
+
+        /* Sub-Nav Section */
+        .sub-nav {
+            color: var(--medium-text);
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            filter: drop-shadow(0 0 2px rgba(black, 0.25));
+            position: absolute;
+            top: 58px;
+            display: flex;
+            flex-direction: column;
+            visibility: hidden;
+            transition: none;
+
+            * {
+                transition: none;
+            }
+
+            &::before {
+                content: '';
+                width: 100%;
+                height: 10px;
+                clip-path: polygon(50% 0%, 45% 100%, 55% 100%);
+                background: #fff;
+                position: absolute;
+                top: -10px;
+                align-self: center;
+            }
+
+            &::after {
+                content: '';
+                width: 100%;
+                height: 10px;
+                background: transparent;
+                position: absolute;
+                top: -10px;
+                align-self: center;
+            }
+
+            img {
+                height: 20px;
+                filter: invert(34%)
+                        sepia(21%)
+                        saturate(30%)
+                        hue-rotate(50deg)
+                        brightness(98%)
+                        contrast(97%);
+                padding-right: 10px;
+                transform: translate(0, 5px);
+            }
+
+            li {
+                justify-content: flex-start;
+                padding: 5px 10px;
+
+                a {
+                    color: var(--mediumText);
+                    text-decoration: none;
+
+                }
+
+                &:hover {
+                    background-color: var(--lightGray01);
+                    border-radius: 5px;
+
+                    a {
+                        color: #000;
+                    }
+
+                    img {
+                        filter: invert(16%)
+                                sepia(0%)
+                                saturate(1316%)
+                                hue-rotate(221deg)
+                                brightness(105%)
+                                contrast(95%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Intranet Button Section */
+.btn-intranet {
+    @include responsive(width, (xl: 175px));
+    @include responsive(padding, (xl: 5px 30px));
+    @include responsive(border-radius, (xl: 50px));
+    display: none;
+    padding: 10px;
+    border-radius: 100%;
+    color: var(--blue);
+    background-color: #fff;
+    font-family: 'Anek Devanagari';
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    @include responsive(display, (lg: flex));
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &::after {
+        @include responsive(content, (xl: "Intranet"));
+        @include responsive(align-self, (xl: center));
+        @include responsive(transform, (xl: translate(0, 2.5px)));
+    }
+
+    .icon_img {
+        @include responsive(padding-right, (xl: 10px));
+        height: 25px;
+        align-self: center;
+        filter: invert(57%)
+                sepia(77%)
+                saturate(4675%)
+                hue-rotate(202deg)
+                brightness(99%)
+                contrast(93%);
+    }
+}
+
+.btn_menu {
+    align-self: center;
+    margin: 0 1rem;
+    width: 45px;
+    height: 45px;
+    padding: 12.5px;
+    font-size: 1.2rem;
+    border-radius: 100%;
+    border: none;
+    background-color: #fff;
+    color: var(--blue);
+    cursor: pointer;
+
+    @include responsive(display, (lg: none,));
+    @include responsive(margin, (md: 0 2rem));
+
+    i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &:hover {
+        background-color: #f0f0f0;
+        transform: scale(1.05);
+    }
+
+    &:active {
+        background-color: #f9f9f9;
+    }
+}
