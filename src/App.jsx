@@ -1,7 +1,6 @@
 /* Libraries */
-import React, { Fragment } from "react";
+import React from "react";
 import {
-  BrowserRouter,
   Routes,
   Route,
   Navigate,
@@ -29,31 +28,27 @@ import { NotFoundPage } from "./pages/errorPages/notFound"
 
 export function App() {
   return (
-    <Fragment>
-      <BrowserRouter>
-        <AppContextProvider>
-          <ScrollToTop />
-          <Header />
-          
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Navigate to="/" />} />
-            <Route path="/matricula" element={<Matricula />} />
-            <Route path="/nosotros" element={<Nosotros />} />
-            <Route path="/datosInstitucionales" element={<InstitutionData />} />
-            <Route path="/misionVision" element={<MisionVision />} />
-            <Route path="/institucion" element={<Institucion />} />
-            <Route path="/noticias" element={<Noticias />} />
-            <Route path="/noticias/:newsId" element={<SelectedNoticia />} />
-            <Route path="/eventos" element={<Eventos />} />
-            <Route path="/eventos/:eventId" element={<SelectedEvento />} />
-            <Route path="/contactanos" element={<Contactanos />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
+    <AppContextProvider>
+      <ScrollToTop />
+      <Header />
+      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Navigate to="/" />} />
+        <Route path="/matricula" element={<Matricula />} />
+        <Route path="/nosotros" element={<Nosotros />} />
+        <Route path="/datosInstitucionales" element={<InstitutionData />} />
+        <Route path="/misionVision" element={<MisionVision />} />
+        <Route path="/institucion" element={<Institucion />} />
+        <Route path="/noticias" element={<Noticias />} />
+        <Route path="/noticias/:newsId" element={<SelectedNoticia />} />
+        <Route path="/eventos" element={<Eventos />} />
+        <Route path="/eventos/:eventId" element={<SelectedEvento />} />
+        <Route path="/contactanos" element={<Contactanos />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
 
-          <Footer />
-        </AppContextProvider>
-      </BrowserRouter>
-    </Fragment>
+      <Footer />
+    </AppContextProvider>
   );
 }
